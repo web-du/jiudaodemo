@@ -1,0 +1,25 @@
+<!--pages/book/book.wxml-->
+<!-- <block wx:for="{{books}}" wx:key="{{index}}">
+<v-book book="{{item}}" />
+</block> -->
+
+
+
+<view class="container" wx:if="{{!searching}}">
+  <view class="header">
+    <view class='box' bind:tap="onSearching">
+      <image src="/images/icon/search.png" />
+      <text>搜索书籍</text>
+    </view> 
+  </view> 
+   <view class="sub-container">
+    <image class="head-img" src="/images/book/quality.png" />
+    <view class="books-container">
+      <block wx:for="{{books}}" wx:key="{{index}}">
+        <v-book book="{{item}}" class="book" />
+      </block>
+    </view>
+  </view> 
+</view>
+
+<v-search wx:if="{{searching}}" bind:cancel="onCancel" more="{{more}}"/>
